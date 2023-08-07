@@ -25,7 +25,7 @@ railroad==0.5.0
 simplejson==3.19.1
 Sphinx==7.1.2
 tornado==6.3.2
-trove_classifiers==2023.7.8
+trove_classifiers==2023.7.6
 truststore==0.7.0
 urllib3_secure_extra==0.1.0
 watchdog==2.3.0
