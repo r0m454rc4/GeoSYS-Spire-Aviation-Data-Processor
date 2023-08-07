@@ -15,6 +15,9 @@ import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
+# Change this to your desired data storage directory path.
+DATA_STORAGE_DIRECTORY = "/home/vadimvolkov/geoSYS/geosys-GIS_SpireAviation/csvFiles"
+
 
 class CSVtoJSONHandler(
     FileSystemEventHandler
