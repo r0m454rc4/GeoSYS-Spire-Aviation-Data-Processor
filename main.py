@@ -19,8 +19,8 @@ import time
 import threading
 import subprocess
 import pandas as pd
-from deleteOldFiles import deleteOldFiles as delete_old_files
 
+from deleteOldFiles import delete_old_files
 from exceptions import MaxRetries, ConnectionLost
 from requests.adapters import HTTPAdapter
 from requests.exceptions import RetryError
@@ -33,6 +33,9 @@ log = logging.getLogger(
 
 target_updates = []
 time_from = None
+
+# Change this to your desired data storage directory path.
+DATA_STORAGE_DIRECTORY = "/path/to/your/data/folder"
 
 
 def execute_csvToJSON():
@@ -87,7 +90,7 @@ def export_to_csv_job():
                 subset="icao_address", keep="last", inplace=True
             )  # Delete the duplicates and keep the last one based on the timestap.
 
-            filename = f"csvFiles/data_{old_time_from.strftime('%m_%d_%Y_%H_%M_%S')}_{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.csv"
+            filename = f"{DATA_STORAGE_DIRECTORY}/data_{old_time_from.strftime('%m_%d_%Y_%H_%M_%S')}_{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.csv"
             df.to_csv(
                 filename, index=False
             )  # Creates a file named "data", strftime() transforms date, time and datetime to string.
