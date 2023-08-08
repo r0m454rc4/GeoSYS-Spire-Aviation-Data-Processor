@@ -6,7 +6,6 @@ Romà Sardá Casellas.
 
 # Script that creates a JSON file from a CSV file.
 # The created JSON file has the same name as the CSV.
-# Then I delete the CSV because I don't need it.
 
 import csv
 import json
@@ -16,7 +15,7 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 # Change this to your desired data storage directory path.
-DATA_STORAGE_DIRECTORY = "/path/to/your/directory"
+DATA_STORAGE_DIRECTORY = "/path/to/your/data/folder"
 
 
 class CSVtoJSONHandler(
@@ -32,7 +31,6 @@ class CSVtoJSONHandler(
                 os.path.splitext(filename)[0] + ".json"
             )  # Use os.path.splitext(filename)[0] to get the filename without the extension.
             convert_csv_to_json(filename, json_filename)
-            os.remove(filename)
 
 
 def convert_csv_to_json(csv_filename, json_filename):
@@ -48,8 +46,8 @@ def convert_csv_to_json(csv_filename, json_filename):
         json_file.write(json_data)
 
 
-if __name__ == "__main__":  # If the file is the main one.
-    folder_to_watch = "csvFiles"
+if __name__ == "__main__":  # If the file is the main module.
+    folder_to_watch = DATA_STORAGE_DIRECTORY
 
     event_handler = CSVtoJSONHandler()
     observer = Observer()
