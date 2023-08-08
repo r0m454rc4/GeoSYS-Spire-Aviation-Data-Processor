@@ -6,24 +6,25 @@ Romà Sardá Casellas.
 
 # Script that deletes all files that have a lifespan greater than 5 minutes.
 
-import os, time
+import os
+import time
 
-# Change this to your desired data storage directory path.
-DATA_STORAGE_DIRECTORY = "/path/to/your/directory"
+# Change this to the absolute path of your desired data storage directory.
+DATA_STORAGE_DIRECTORY = "/path/to/your/data/folder"
 
 
 def delete_old_files():
-    path = r"csvFiles"
+    path = DATA_STORAGE_DIRECTORY
     now = time.time()
 
     for f in os.listdir(path):
-        f = os.path.join(path, f)
+        f = os.path.join(path, f)  # Create the full path of the file.
         if (
-            os.stat(f).st_mtime < now - 1 * 300
-        ):  # If the file has been created 5 minutes ago:
-            if os.path.isfile(f):
-                print(f)
-                os.remove(f)  # I delete it.
+            os.path.isfile(f) and os.stat(f).st_mtime < now - 1 * 300
+        ):  # Check if is a file, and if the last modified time is greater than 5 minutes.
+            print(f)
+            os.remove(f)
 
 
-delete_old_files()
+if __name__ == "__main__":  # If the file is the main module.
+    delete_old_files()
