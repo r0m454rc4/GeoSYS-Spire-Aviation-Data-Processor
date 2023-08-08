@@ -6,8 +6,8 @@ GeoSYS Spire Aviation Data Processor is a set of scripts that fetch data from th
 ## Installation
 To use GeoSYS Spire Aviation Data Processor, you need Python 3.6 or above.
 
-1. Clone the repository: `git clone https://github.com/romasarca/GeoSYS-Spire-Aviation-Data-Processor.git
-2. Navigate to the project folder: `cd GeoSYS-Spire-Aviation-Data-Processor
+1. Clone the repository: `git clone https://github.com/romasarca/GeoSYS-Spire-Aviation-Data-Processor.git`
+2. Navigate to the project folder: `cd GeoSYS-Spire-Aviation-Data-Processor`
 3. Install the required dependencies: `pip install -r requirements.txt`
 
 ## Configuration
@@ -29,7 +29,7 @@ DATA_STORAGE_DIRECTORY = '/path/to/your/data/folder'
 ```
 ## Usage
 ### Fetch and Filter Data
-To fetch data from the Spire Aviation API, filter it, and start generating parsed json files, run the following command:
+To fetch data from the Spire Aviation API, filter it, and start generating parsed json and csv files, run the following command:
 
 ```python
 python3 main.py
