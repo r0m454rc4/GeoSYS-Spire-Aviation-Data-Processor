@@ -1,5 +1,9 @@
 # GeoSYS Spire Aviation Data Processor
 
+Developed by GeoSYS
+
+![Logo](geosys.png)
+
 ## Description
 GeoSYS Spire Aviation Data Processor is a set of scripts that fetch data from the Spire Aviation API, filters it using pandas, and converts it to JSON format. Additionally, it includes a utility script to delete old files to manage storage efficiently.
 
